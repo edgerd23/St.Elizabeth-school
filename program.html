@@ -1,0 +1,1021 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parent Portal - St. Elizabeth Nursery School</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="pstyle.css">
+        
+
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container header-container">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="school-logo.png" height="100" width="100">
+                </div>
+                <div class="logo-text">
+                    <h1>St. Elizabeth Nursery School</h1>
+                    <p>Nurturing Young Minds Since 1995</p>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav class="nav-links" id="nav-links">
+                <ul id="mainNav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="program.html">Programs</a></li>
+                    <li><a href="admission.html">Admissions</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="event.html">Events</a></li>
+                    <li><a href="parent.html">Parent Portal</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Login Page (Initial State) -->
+    <div id="loginPage" class="login-container">
+        <div class="login-left">
+            <h1>Parent Portal</h1>
+            <p>Welcome to St. Elizabeth Nursery School's secure parent portal. Access your child's progress, attendance, school events, and communicate with teachers.</p>
+            <div style="margin-top: 40px;">
+                <h3 style="color: white;">Portal Features:</h3>
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i> View progress reports and assessments</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i> Check attendance records</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i> View school calendar and events</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i> Communicate with teachers</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i> Upload photos and documents</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-check-circle" style="margin-right: 10px;"></i> Update personal information</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="login-right">
+            <div class="login-box">
+                <div class="logo-container">
+                    <div class="logo">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>St. Elizabeth Nursery School</h1>
+                        <p>Secure Parent Portal</p>
+                    </div>
+                </div>
+                
+                <div id="loginAlert" class="alert alert-error" style="display: none;">
+                    Invalid username or password. Please try again.
+                </div>
+                
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="username">Email Address</label>
+                        <input type="email" id="username" placeholder="Enter your email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Remember me</label>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Login to Portal</button>
+                </form>
+                
+                <div class="login-links">
+                    <a href="#" id="forgotPassword">Forgot Password?</a>
+                    <a href="#" id="firstTimeUser">First Time User?</a>
+                </div>
+                
+                <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee;">
+                    <p style="text-align: center; color: #666;">Need help accessing the portal?</p>
+                    <p style="text-align: center; margin-top: 10px;">
+                        <a href="mailto:support@stelizabethnursery.edu" style="color: var(--primary);">Contact Support</a> or call (555) 123-4567
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Portal Dashboard (Hidden Initially) -->
+    <div id="portalDashboard" style="display: none;">
+        <!-- Header -->
+        <header class="portal-header">
+            <div class="container header-container">
+                <div class="logo-container">
+                    <div class="logo">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <div class="logo-text">
+                        <h1>Parent Portal</h1>
+                        <p>St. Elizabeth Nursery School</p>
+                    </div>
+                </div>
+                
+                <div class="user-info">
+                    <div class="user-avatar" id="userAvatar">JS</div>
+                    <div>
+                        <div style="font-weight: 600;" id="userName">Jane Smith</div>
+                        <div style="font-size: 0.9rem; color: #666;" id="userEmail">jane.smith@example.com</div>
+                    </div>
+                    <button class="logout-btn" id="logoutBtn" title="Logout">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Navigation -->
+        <nav class="portal-nav">
+            <div class="container nav-container">
+                <a href="#" class="nav-tab active" data-tab="dashboard"><i class="fas fa-tachometer-alt" style="margin-right: 8px;"></i> Dashboard</a>
+                <a href="#" class="nav-tab" data-tab="children"><i class="fas fa-child" style="margin-right: 8px;"></i> My Children</a>
+                <a href="#" class="nav-tab" data-tab="progress"><i class="fas fa-chart-line" style="margin-right: 8px;"></i> Progress Reports</a>
+                <a href="#" class="nav-tab" data-tab="attendance"><i class="fas fa-calendar-check" style="margin-right: 8px;"></i> Attendance</a>
+                <a href="#" class="nav-tab" data-tab="events"><i class="fas fa-calendar-alt" style="margin-right: 8px;"></i> Events Calendar</a>
+                <a href="#" class="nav-tab" data-tab="messages"><i class="fas fa-envelope" style="margin-right: 8px;"></i> Messages</a>
+                <a href="#" class="nav-tab" data-tab="gallery"><i class="fas fa-images" style="margin-right: 8px;"></i> Photo Gallery</a>
+                <a href="#" class="nav-tab" data-tab="settings"><i class="fas fa-cog" style="margin-right: 8px;"></i> Settings</a>
+            </div>
+        </nav>
+        
+        <!-- Main Content -->
+        <main class="portal-content">
+            <div class="container">
+                <!-- Dashboard Tab -->
+                <div id="dashboardTab" class="portal-tab active">
+                    <h2>Parent Dashboard</h2>
+                    <p style="margin-bottom: 30px;">Welcome back! Here's an overview of your child's activities and important updates.</p>
+                    
+                    <div class="dashboard-grid">
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <div class="card-value" id="childCount">2</div>
+                            </div>
+                            <div class="card-label">Children Enrolled</div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-calendar-check"></i>
+                                </div>
+                                <div class="card-value" id="attendanceRate">94%</div>
+                            </div>
+                            <div class="card-label">Attendance Rate (This Month)</div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="card-value" id="unreadMessages">3</div>
+                            </div>
+                            <div class="card-label">Unread Messages</div>
+                        </div>
+                        
+                        <div class="dashboard-card">
+                            <div class="card-header">
+                                <div class="card-icon">
+                                    <i class="fas fa-calendar-alt"></i>
+                                </div>
+                                <div class="card-value" id="upcomingEvents">5</div>
+                            </div>
+                            <div class="card-label">Upcoming Events</div>
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 40px;">
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow);">
+                            <h3>Recent Updates</h3>
+                            <div style="margin-top: 20px;">
+                                <div style="padding: 15px; border-bottom: 1px solid #eee;">
+                                    <div style="font-weight: 600; color: var(--primary);">New Progress Report Available</div>
+                                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Progress report for Emily Smith (Pre-K Program) has been uploaded.</div>
+                                    <div style="font-size: 0.8rem; color: #999; margin-top: 5px;">Posted: Today, 10:30 AM</div>
+                                </div>
+                                
+                                <div style="padding: 15px; border-bottom: 1px solid #eee;">
+                                    <div style="font-weight: 600; color: var(--primary);">Fall Festival Reminder</div>
+                                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Don't forget our annual Fall Festival on October 27th. Please RSVP by October 20th.</div>
+                                    <div style="font-size: 0.8rem; color: #999; margin-top: 5px;">Posted: Yesterday, 3:15 PM</div>
+                                </div>
+                                
+                                <div style="padding: 15px;">
+                                    <div style="font-weight: 600; color: var(--primary);">New Photos Uploaded</div>
+                                    <div style="font-size: 0.9rem; color: #666; margin-top: 5px;">Teacher Maria has uploaded new photos from Music Class. Check them out in the gallery!</div>
+                                    <div style="font-size: 0.8rem; color: #999; margin-top: 5px;">Posted: October 15, 2023</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow);">
+                            <h3>Quick Actions</h3>
+                            <div style="margin-top: 20px;">
+                                <a href="#" class="btn" style="width: 100%; margin-bottom: 15px; text-align: center;" data-tab="messages">
+                                    <i class="fas fa-envelope" style="margin-right: 8px;"></i> Send Message
+                                </a>
+                                <a href="#" class="btn btn-secondary" style="width: 100%; margin-bottom: 15px; text-align: center;" data-tab="gallery">
+                                    <i class="fas fa-upload" style="margin-right: 8px;"></i> Upload Photos
+                                </a>
+                                <a href="#" class="btn btn-success" style="width: 100%; margin-bottom: 15px; text-align: center;" data-tab="events">
+                                    <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i> View Calendar
+                                </a>
+                                <a href="#" class="btn btn-warning" style="width: 100%; text-align: center;" data-tab="settings">
+                                    <i class="fas fa-user-edit" style="margin-right: 8px;"></i> Update Profile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- My Children Tab -->
+                <div id="childrenTab" class="portal-tab" style="display: none;">
+                    <h2>My Children</h2>
+                    <p style="margin-bottom: 30px;">Manage information for your children enrolled at St. Elizabeth Nursery School.</p>
+                    
+                    <div class="children-grid">
+                        <div class="child-card">
+                            <div class="child-header">
+                                <div class="child-avatar">
+                                    <i class="fas fa-female"></i>
+                                </div>
+                                <div>
+                                    <h3 style="color: white; margin-bottom: 5px;">Emily Smith</h3>
+                                    <div style="color: rgba(255,255,255,0.8);">Pre-K Program (4-5 years)</div>
+                                </div>
+                            </div>
+                            <div class="child-info">
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Teacher:</div>
+                                    <div>Maria Rodriguez</div>
+                                </div>
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Classroom:</div>
+                                    <div>Sunflower Room</div>
+                                </div>
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Enrollment Date:</div>
+                                    <div>August 15, 2023</div>
+                                </div>
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Daily Schedule:</div>
+                                    <div>8:30 AM - 3:30 PM</div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <a href="#" class="btn" style="margin-right: 10px;" data-tab="progress">View Progress</a>
+                                    <a href="#" class="btn btn-secondary" data-tab="attendance">Attendance</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="child-card">
+                            <div class="child-header">
+                                <div class="child-avatar">
+                                    <i class="fas fa-male"></i>
+                                </div>
+                                <div>
+                                    <h3 style="color: white; margin-bottom: 5px;">Jacob Smith</h3>
+                                    <div style="color: rgba(255,255,255,0.8);">Toddler Program (2-3 years)</div>
+                                </div>
+                            </div>
+                            <div class="child-info">
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Teacher:</div>
+                                    <div>David Chen</div>
+                                </div>
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Classroom:</div>
+                                    <div>Butterfly Room</div>
+                                </div>
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Enrollment Date:</div>
+                                    <div>September 5, 2023</div>
+                                </div>
+                                <div class="child-info-item">
+                                    <div class="child-info-label">Daily Schedule:</div>
+                                    <div>9:00 AM - 12:30 PM</div>
+                                </div>
+                                <div style="margin-top: 20px;">
+                                    <a href="#" class="btn" style="margin-right: 10px;" data-tab="progress">View Progress</a>
+                                    <a href="#" class="btn btn-secondary" data-tab="attendance">Attendance</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Reports Tab -->
+                <div id="progressTab" class="portal-tab" style="display: none;">
+                    <h2>Progress Reports</h2>
+                    <p style="margin-bottom: 30px;">View and download progress reports for your children.</p>
+                    
+                    <div class="reports-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 0;">Emily Smith - Pre-K Program</h3>
+                            <select id="reportPeriod" style="width: auto;">
+                                <option>Current Term (Fall 2023)</option>
+                                <option>Previous Term (Spring 2023)</option>
+                                <option>Full Year (2022-2023)</option>
+                            </select>
+                        </div>
+                        
+                        <table class="report-table">
+                            <thead>
+                                <tr>
+                                    <th>Subject/Area</th>
+                                    <th>Progress Level</th>
+                                    <th>Teacher Comments</th>
+                                    <th>Assessment Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Language & Literacy</td>
+                                    <td><span class="badge badge-success">Exceeding Expectations</span></td>
+                                    <td>Emily shows excellent vocabulary development and enjoys storytime.</td>
+                                    <td>Oct 15, 2023</td>
+                                </tr>
+                                <tr>
+                                    <td>Math & Logic</td>
+                                    <td><span class="badge badge-success">Meeting Expectations</span></td>
+                                    <td>Can count to 50 and recognize basic shapes and patterns.</td>
+                                    <td>Oct 15, 2023</td>
+                                </tr>
+                                <tr>
+                                    <td>Social Skills</td>
+                                    <td><span class="badge badge-warning">Developing</span></td>
+                                    <td>Sometimes needs encouragement to share during group activities.</td>
+                                    <td>Oct 15, 2023</td>
+                                </tr>
+                                <tr>
+                                    <td>Creative Arts</td>
+                                    <td><span class="badge badge-success">Exceeding Expectations</span></td>
+                                    <td>Very creative in art projects and shows interest in music.</td>
+                                    <td>Oct 15, 2023</td>
+                                </tr>
+                                <tr>
+                                    <td>Physical Development</td>
+                                    <td><span class="badge badge-success">Meeting Expectations</span></td>
+                                    <td>Good motor skills development, enjoys outdoor play.</td>
+                                    <td>Oct 15, 2023</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <div style="margin-top: 30px; text-align: center;">
+                            <a href="#" class="btn" style="margin-right: 10px;"><i class="fas fa-download" style="margin-right: 8px;"></i> Download PDF Report</a>
+                            <a href="#" class="btn btn-secondary"><i class="fas fa-print" style="margin-right: 8px;"></i> Print Report</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Attendance Tab -->
+                <div id="attendanceTab" class="portal-tab" style="display: none;">
+                    <h2>Attendance Records</h2>
+                    <p style="margin-bottom: 30px;">View your child's attendance history and patterns.</p>
+                    
+                    <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px;">
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow);">
+                            <h3>October 2023 Attendance - Emily Smith</h3>
+                            <div class="attendance-calendar">
+                                <div class="calendar-day holiday">Sun</div>
+                                <div class="calendar-day">Mon</div>
+                                <div class="calendar-day">Tue</div>
+                                <div class="calendar-day">Wed</div>
+                                <div class="calendar-day">Thu</div>
+                                <div class="calendar-day">Fri</div>
+                                <div class="calendar-day holiday">Sat</div>
+                                
+                                <!-- Calendar dates -->
+                                <div class="calendar-day holiday">1</div>
+                                <div class="calendar-day present">2</div>
+                                <div class="calendar-day present">3</div>
+                                <div class="calendar-day present">4</div>
+                                <div class="calendar-day present">5</div>
+                                <div class="calendar-day present">6</div>
+                                <div class="calendar-day holiday">7</div>
+                                <div class="calendar-day holiday">8</div>
+                                <div class="calendar-day present">9</div>
+                                <div class="calendar-day present">10</div>
+                                <div class="calendar-day present">11</div>
+                                <div class="calendar-day present">12</div>
+                                <div class="calendar-day present">13</div>
+                                <div class="calendar-day holiday">14</div>
+                                <div class="calendar-day holiday">15</div>
+                                <div class="calendar-day present">16</div>
+                                <div class="calendar-day present">17</div>
+                                <div class="calendar-day present">18</div>
+                                <div class="calendar-day present">19</div>
+                                <div class="calendar-day present">20</div>
+                                <div class="calendar-day holiday">21</div>
+                                <div class="calendar-day holiday">22</div>
+                                <div class="calendar-day present">23</div>
+                                <div class="calendar-day present">24</div>
+                                <div class="calendar-day absent">25</div>
+                                <div class="calendar-day present">26</div>
+                                <div class="calendar-day present">27</div>
+                                <div class="calendar-day holiday">28</div>
+                                <div class="calendar-day holiday">29</div>
+                                <div class="calendar-day present">30</div>
+                                <div class="calendar-day present">31</div>
+                            </div>
+                            
+                            <div style="margin-top: 30px; display: flex; justify-content: center; gap: 20px;">
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20px; height: 20px; background-color: #d4edda; margin-right: 8px; border-radius: 3px;"></div>
+                                    <span>Present (20 days)</span>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20px; height: 20px; background-color: #f8d7da; margin-right: 8px; border-radius: 3px;"></div>
+                                    <span>Absent (1 day)</span>
+                                </div>
+                                <div style="display: flex; align-items: center;">
+                                    <div style="width: 20px; height: 20px; background-color: #fff3cd; margin-right: 8px; border-radius: 3px;"></div>
+                                    <span>Holiday/Weekend (10 days)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div style="background: white; border-radius: var(--border-radius); padding: 30px; box-shadow: var(--shadow);">
+                            <h3>Attendance Summary</h3>
+                            <div style="margin-top: 30px;">
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 0.9rem; color: #666;">Current Month (October)</div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">95.2%</div>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 0.9rem; color: #666;">School Year (2023-2024)</div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--primary);">94.8%</div>
+                                </div>
+                                
+                                <div style="margin-bottom: 20px;">
+                                    <div style="font-size: 0.9rem; color: #666;">Days Present</div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--success);">42</div>
+                                </div>
+                                
+                                <div>
+                                    <div style="font-size: 0.9rem; color: #666;">Days Absent</div>
+                                    <div style="font-size: 2rem; font-weight: 700; color: var(--danger);">2</div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-top: 30px;">
+                                <h4>Report Absence</h4>
+                                <p style="font-size: 0.9rem; margin-bottom: 15px;">Notify the school if your child will be absent.</p>
+                                <a href="#" class="btn btn-warning" style="width: 100%;"><i class="fas fa-calendar-times" style="margin-right: 8px;"></i> Report Upcoming Absence</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Events Calendar Tab -->
+                <div id="eventsTab" class="portal-tab" style="display: none;">
+                    <h2>Events Calendar</h2>
+                    <p style="margin-bottom: 30px;">View and RSVP to upcoming school events and activities.</p>
+                    
+                    <div class="events-container">
+                        <div class="calendar-container">
+                            <div class="calendar-header">
+                                <h3 style="margin-bottom: 0;">October 2023</h3>
+                                <div>
+                                    <button class="btn" style="padding: 8px 15px; margin-right: 10px;"><i class="fas fa-chevron-left"></i></button>
+                                    <button class="btn" style="padding: 8px 15px;"><i class="fas fa-chevron-right"></i></button>
+                                </div>
+                            </div>
+                            
+                            <div class="calendar-days">
+                                <div class="calendar-day-header">Sun</div>
+                                <div class="calendar-day-header">Mon</div>
+                                <div class="calendar-day-header">Tue</div>
+                                <div class="calendar-day-header">Wed</div>
+                                <div class="calendar-day-header">Thu</div>
+                                <div class="calendar-day-header">Fri</div>
+                                <div class="calendar-day-header">Sat</div>
+                            </div>
+                            
+                            <div class="calendar-dates">
+                                <!-- Calendar dates would be generated by JavaScript in a real implementation -->
+                                <div class="calendar-date">1</div>
+                                <div class="calendar-date">2</div>
+                                <div class="calendar-date">3</div>
+                                <div class="calendar-date">4</div>
+                                <div class="calendar-date">5</div>
+                                <div class="calendar-date has-event">6<br><div class="event-dot"></div><small>Field Trip</small></div>
+                                <div class="calendar-date">7</div>
+                                <div class="calendar-date">8</div>
+                                <div class="calendar-date">9</div>
+                                <div class="calendar-date has-event">10<br><div class="event-dot"></div><small>Parent Meeting</small></div>
+                                <div class="calendar-date">11</div>
+                                <div class="calendar-date">12</div>
+                                <div class="calendar-date">13</div>
+                                <div class="calendar-date">14</div>
+                                <div class="calendar-date">15</div>
+                                <div class="calendar-date">16</div>
+                                <div class="calendar-date">17</div>
+                                <div class="calendar-date">18</div>
+                                <div class="calendar-date has-event">19<br><div class="event-dot"></div><small>Art Show</small></div>
+                                <div class="calendar-date">20</div>
+                                <div class="calendar-date today">21<br><div class="event-dot"></div><small>Today</small></div>
+                                <div class="calendar-date">22</div>
+                                <div class="calendar-date">23</div>
+                                <div class="calendar-date">24</div>
+                                <div class="calendar-date">25</div>
+                                <div class="calendar-date">26</div>
+                                <div class="calendar-date has-event">27<br><div class="event-dot"></div><small>Fall Festival</small></div>
+                                <div class="calendar-date">28</div>
+                                <div class="calendar-date">29</div>
+                                <div class="calendar-date">30</div>
+                                <div class="calendar-date">31</div>
+                            </div>
+                        </div>
+                        
+                        <div class="events-sidebar">
+                            <h3>Upcoming Events</h3>
+                            
+                            <div class="event-item">
+                                <h4 style="margin-bottom: 5px;">Fall Festival</h4>
+                                <div style="color: var(--primary); font-weight: 600;">October 27, 2023 • 4:00 PM - 7:00 PM</div>
+                                <p style="margin-top: 10px;">Our annual Fall Festival with games, food, and fun for the whole family.</p>
+                                <div style="display: flex; margin-top: 15px;">
+                                    <div class="badge badge-success" style="margin-right: 10px;">RSVP: Yes</div>
+                                    <div class="badge badge-info">2 Adults, 2 Children</div>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <h4 style="margin-bottom: 5px;">Parent-Teacher Conferences</h4>
+                                <div style="color: var(--primary); font-weight: 600;">November 15-17, 2023</div>
+                                <p style="margin-top: 10px;">Sign up for a 20-minute conference with your child's teacher.</p>
+                                <div style="display: flex; margin-top: 15px;">
+                                    <a href="#" class="btn" style="padding: 8px 15px; font-size: 0.9rem;">Schedule Conference</a>
+                                </div>
+                            </div>
+                            
+                            <div class="event-item">
+                                <h4 style="margin-bottom: 5px;">Thanksgiving Break</h4>
+                                <div style="color: var(--primary); font-weight: 600;">November 22-24, 2023</div>
+                                <p style="margin-top: 10px;">School closed for Thanksgiving holiday.</p>
+                            </div>
+                            
+                            <div class="event-item">
+                                <h4 style="margin-bottom: 5px;">Winter Concert</h4>
+                                <div style="color: var(--primary); font-weight: 600;">December 15, 2023 • 6:00 PM</div>
+                                <p style="margin-top: 10px;">Students will perform holiday songs and music.</p>
+                                <div style="margin-top: 15px;">
+                                    <a href="#" class="btn btn-secondary" style="padding: 8px 15px; font-size: 0.9rem;">RSVP</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Messages Tab -->
+                <div id="messagesTab" class="portal-tab" style="display: none;">
+                    <h2>Messages</h2>
+                    <p style="margin-bottom: 30px;">Communicate with teachers and school staff securely.</p>
+                    
+                    <div class="messages-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 0;">Conversation with Maria Rodriguez (Teacher)</h3>
+                            <a href="#" class="btn btn-success"><i class="fas fa-plus" style="margin-right: 8px;"></i> New Message</a>
+                        </div>
+                        
+                        <div class="message-thread">
+                            <div class="message message-received">
+                                <div class="message-sender">Maria Rodriguez</div>
+                                <div>Hi Jane, Emily had a great day today! She was very engaged during our science experiment and helped clean up afterwards.</div>
+                                <div class="message-time">Today, 2:45 PM</div>
+                            </div>
+                            
+                            <div class="message message-sent">
+                                <div class="message-sender">You</div>
+                                <div>Thank you for letting me know! She was excited about the experiment this morning. Did she eat all her lunch?</div>
+                                <div class="message-time">Today, 3:10 PM</div>
+                            </div>
+                            
+                            <div class="message message-received">
+                                <div class="message-sender">Maria Rodriguez</div>
+                                <div>Yes, she ate everything except the carrots. We're working on trying new vegetables. Also, don't forget about the Fall Festival next Friday!</div>
+                                <div class="message-time">Today, 3:30 PM</div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea id="newMessage" placeholder="Type your message here..." rows="3"></textarea>
+                        </div>
+                        <button class="btn"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i> Send Message</button>
+                    </div>
+                </div>
+                
+                <!-- Photo Gallery Tab -->
+                <div id="galleryTab" class="portal-tab" style="display: none;">
+                    <h2>Photo Gallery</h2>
+                    <p style="margin-bottom: 30px;">View and upload photos from school activities. Photos are private and only visible to your family and school staff.</p>
+                    
+                    <div class="gallery-container">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                            <h3 style="margin-bottom: 0;">Classroom Photos - October 2023</h3>
+                            <div>
+                                <button class="btn btn-success" id="uploadPhotoBtn"><i class="fas fa-upload" style="margin-right: 8px;"></i> Upload Photos</button>
+                                <input type="file" id="photoUpload" multiple accept="image/*" style="display: none;">
+                            </div>
+                        </div>
+                        
+                        <div class="gallery-grid">
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Art class">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1516627145497-ae6951055d46?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Outdoor play">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1541692641319-981cc79ee10a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Music class">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Story time">
+                            </div>
+                            <div class="gallery-item">
+                                <div class="upload-overlay">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1604881988758-f76ad2f7aac1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Playground">
+                            </div>
+                            <div class="gallery-item">
+                                <div class="upload-overlay">
+                                    <i class="fas fa-plus"></i>
+                                </div>
+                                <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="Science experiment">
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: 30px; padding: 20px; background-color: var(--light); border-radius: var(--border-radius);">
+                            <h4>Privacy Notice</h4>
+                            <p>All photos uploaded to the gallery are private and only visible to your family and authorized school staff. By uploading photos, you agree that they may be shared within the secure school community.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Settings Tab -->
+                <div id="settingsTab" class="portal-tab" style="display: none;">
+                    <h2>Account Settings</h2>
+                    <p style="margin-bottom: 30px;">Update your personal information, notification preferences, and account settings.</p>
+                    
+                    <div class="settings-container">
+                        <div class="settings-tabs">
+                            <a href="#" class="settings-tab active" data-settings="profile">Profile Information</a>
+                            <a href="#" class="settings-tab" data-settings="notifications">Notifications</a>
+                            <a href="#" class="settings-tab" data-settings="security">Security</a>
+                        </div>
+                        
+                        <div id="profileSettings" class="settings-content">
+                            <h3>Update Your Profile</h3>
+                            <form id="profileForm">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                    <div class="form-group">
+                                        <label for="firstName">First Name</label>
+                                        <input type="text" id="firstName" value="Jane">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="lastName">Last Name</label>
+                                        <input type="text" id="lastName" value="Smith">
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <input type="email" id="email" value="jane.smith@example.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" id="phone" value="(555) 123-4567">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="address">Address</label>
+                                    <textarea id="address" rows="3">123 Main Street, Anytown, USA 12345</textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="emergencyContact">Emergency Contact</label>
+                                    <input type="text" id="emergencyContact" value="John Smith (555) 987-6543">
+                                </div>
+                                
+                                <button type="submit" class="btn">Save Changes</button>
+                            </form>
+                        </div>
+                        
+                        <div id="notificationSettings" class="settings-content" style="display: none;">
+                            <h3>Notification Preferences</h3>
+                            <p>Choose how you want to receive updates from the school.</p>
+                            
+                            <form id="notificationForm" style="margin-top: 20px;">
+                                <div class="checkbox-group" style="margin-bottom: 15px;">
+                                    <input type="checkbox" id="emailNotifications" checked>
+                                    <label for="emailNotifications">Email notifications for new progress reports</label>
+                                </div>
+                                
+                                <div class="checkbox-group" style="margin-bottom: 15px;">
+                                    <input type="checkbox" id="smsNotifications">
+                                    <label for="smsNotifications">SMS notifications for urgent updates</label>
+                                </div>
+                                
+                                <div class="checkbox-group" style="margin-bottom: 15px;">
+                                    <input type="checkbox" id="eventReminders" checked>
+                                    <label for="eventReminders">Event reminders and calendar updates</label>
+                                </div>
+                                
+                                <div class="checkbox-group" style="margin-bottom: 15px;">
+                                    <input type="checkbox" id="messageAlerts" checked>
+                                    <label for="messageAlerts">Alerts when you receive new messages</label>
+                                </div>
+                                
+                                <div class="checkbox-group" style="margin-bottom: 15px;">
+                                    <input type="checkbox" id="photoAlerts">
+                                    <label for="photoAlerts">Notifications when new photos are uploaded</label>
+                                </div>
+                                
+                                <button type="submit" class="btn">Save Preferences</button>
+                            </form>
+                        </div>
+                        
+                        <div id="securitySettings" class="settings-content" style="display: none;">
+                            <h3>Security Settings</h3>
+                            <p>Manage your password and account security.</p>
+                            
+                            <form id="securityForm" style="margin-top: 20px;">
+                                <div class="form-group">
+                                    <label for="currentPassword">Current Password</label>
+                                    <input type="password" id="currentPassword">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="newPassword">New Password</label>
+                                    <input type="password" id="newPassword">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="confirmPassword">Confirm New Password</label>
+                                    <input type="password" id="confirmPassword">
+                                </div>
+                                
+                                <div class="checkbox-group" style="margin-bottom: 25px;">
+                                    <input type="checkbox" id="twoFactor">
+                                    <label for="twoFactor">Enable two-factor authentication (recommended)</label>
+                                </div>
+                                
+                                <button type="submit" class="btn">Update Password</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+     <!-- Footer -->
+    <footer>
+      <div class="footer-links">
+          <h3>Quick Links</h3>
+          <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="program.html">Programs</a></li>
+              <li><a href="admission.html">Admissions</a></li>
+              <li><a href="gallery.html">Gallery</a></li>
+              <li><a href="event.html">Events & News</a></li>
+              <li><a href="parent.html">Parent Portal</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+      </div>
+                
+      <div class="footer-social">
+          <h3>Connect With Us</h3>
+          <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+      </div>
+            
+      <div class="copyright">
+        <p>&copy; 2023 St. Elizabeth Nursery School. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+    
+    <script>
+        // Demo credentials for testing
+        const DEMO_CREDENTIALS = {
+            email: "parent@example.com",
+            password: "password123"
+        };
+        
+        // Current user data
+        let currentUser = null;
+        
+        // Login functionality
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginAlert = document.getElementById('loginAlert');
+            
+            // Demo authentication (in a real app, this would be a secure server call)
+            if (email === DEMO_CREDENTIALS.email && password === DEMO_CREDENTIALS.password) {
+                // Successful login
+                loginAlert.style.display = 'none';
+                
+                // Set current user
+                currentUser = {
+                    firstName: "Jane",
+                    lastName: "Smith",
+                    email: email,
+                    initials: "JS"
+                };
+                
+                // Update UI with user info
+                document.getElementById('userName').textContent = currentUser.firstName + " " + currentUser.lastName;
+                document.getElementById('userEmail').textContent = currentUser.email;
+                document.getElementById('userAvatar').textContent = currentUser.initials;
+                
+                // Show portal dashboard
+                document.getElementById('loginPage').style.display = 'none';
+                document.getElementById('portalDashboard').style.display = 'block';
+                
+                // Initialize the dashboard
+                initializeDashboard();
+            } else {
+                // Failed login
+                loginAlert.style.display = 'block';
+                loginAlert.textContent = "Invalid email or password. Please try again.";
+                loginAlert.className = "alert alert-error";
+            }
+        });
+        
+        // Forgot password
+        document.getElementById('forgotPassword').addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = prompt("Please enter your email address to reset your password:");
+            if (email) {
+                alert("Password reset instructions have been sent to " + email + ".");
+            }
+        });
+        
+        // First time user
+        document.getElementById('firstTimeUser').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert("Please contact the school office at (555) 123-4567 or email support@stelizabethnursery.edu to set up your parent portal account.");
+        });
+        
+        // Logout functionality
+        document.getElementById('logoutBtn').addEventListener('click', function() {
+            if (confirm("Are you sure you want to log out?")) {
+                currentUser = null;
+                document.getElementById('loginPage').style.display = 'flex';
+                document.getElementById('portalDashboard').style.display = 'none';
+                document.getElementById('loginForm').reset();
+            }
+        });
+        
+        // Tab navigation
+        document.querySelectorAll('.nav-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.portal-tab').forEach(t => t.style.display = 'none');
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-tab') + 'Tab';
+                document.getElementById(tabId).style.display = 'block';
+            });
+        });
+        
+        // Settings tab navigation
+        document.querySelectorAll('.settings-tab').forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.settings-content').forEach(c => c.style.display = 'none');
+                
+                // Add active class to clicked tab
+                this.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = this.getAttribute('data-settings') + 'Settings';
+                document.getElementById(tabId).style.display = 'block';
+            });
+        });
+        
+        // Quick action buttons
+        document.querySelectorAll('[data-tab]').forEach(button => {
+            if (button.classList.contains('btn')) {
+                button.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const tabName = this.getAttribute('data-tab');
+                    
+                    // Remove active class from all tabs
+                    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+                    document.querySelectorAll('.portal-tab').forEach(t => t.style.display = 'none');
+                    
+                    // Add active class to target tab
+                    document.querySelector(`.nav-tab[data-tab="${tabName}"]`).classList.add('active');
+                    
+                    // Show corresponding content
+                    document.getElementById(tabName + 'Tab').style.display = 'block';
+                });
+            }
+        });
+        
+        // Photo upload
+        document.getElementById('uploadPhotoBtn').addEventListener('click', function() {
+            document.getElementById('photoUpload').click();
+        });
+        
+        document.getElementById('photoUpload').addEventListener('change', function() {
+            if (this.files.length > 0) {
+                alert(this.files.length + " photo(s) selected for upload. In a real application, these would be uploaded to a secure server.");
+            }
+        });
+        
+        // Form submissions
+        document.getElementById('profileForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Profile updated successfully!");
+        });
+        
+        document.getElementById('notificationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert("Notification preferences saved!");
+        });
+        
+        document.getElementById('securityForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const currentPass = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirmPass = document.getElementById('confirmPassword').value;
+            
+            if (newPass !== confirmPass) {
+                alert("New passwords don't match!");
+                return;
+            }
+            
+            if (newPass.length < 6) {
+                alert("Password must be at least 6 characters long!");
+                return;
+            }
+            
+            alert("Password updated successfully!");
+            document.getElementById('securityForm').reset();
+        });
+        
+        // Initialize dashboard data
+        function initializeDashboard() {
+            // Simulate loading data
+            setTimeout(() => {
+                // Update dashboard stats (these would come from an API in a real app)
+                document.getElementById('childCount').textContent = '2';
+                document.getElementById('attendanceRate').textContent = '94%';
+                document.getElementById('unreadMessages').textContent = '3';
+                document.getElementById('upcomingEvents').textContent = '5';
+            }, 500);
+        }
+        
+        // Auto-login for demo purposes (remove in production)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Uncomment to auto-login for demo
+            // document.getElementById('username').value = DEMO_CREDENTIALS.email;
+            // document.getElementById('password').value = DEMO_CREDENTIALS.password;
+        });
+    </script>
+</body>
+</html>
